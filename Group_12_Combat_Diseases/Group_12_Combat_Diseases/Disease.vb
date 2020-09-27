@@ -14,8 +14,8 @@ Option Explicit On
 
 Public Class Disease
     'Variables
-    Private _cases() As Integer
-    Private _months As Integer
+    Protected _cases() As Integer
+    Protected _months As Integer
     Private _totalCases As Integer
     Private _deaths As Integer
 
@@ -46,7 +46,7 @@ Public Class Disease
         End Get
         Set(value As Integer)
             If i >= 1 And i <= _months Then
-                Cases(i) = enforceRange(value)
+                _cases(i) = enforceRange(value)
             End If
         End Set
     End Property
@@ -65,14 +65,15 @@ Public Class Disease
     End Function
 
     Public Function DeathRate() As Double 'death rate for the disease
-        Return _deaths / _totalCases * 100
+        Return _deaths / _totalCases
     End Function
 
     Public Overridable Function Display() As String 'displays the disease information
         Dim output As String
-        output = "Months monitored: " & _months & vbCrLf
-        output += "Total cases: " & _totalCases & vbCrLf
-        output += "Deaths: " & _deaths & vbCrLf
+        output = "Months monitored: " & CStr(_months) & vbCrLf
+        output += "Average cases: " & CStr(AvgCases()) & vbCrLf
+        output += "Total cases: " & CStr(_totalCases) & vbCrLf
+        output += "Death rate: " & Format(DeathRate(), "0.0%") & vbCrLf
         Return output
     End Function
 
@@ -83,6 +84,7 @@ Public Class Disease
             Return val
         End If
     End Function
+
     Protected Function enforceRange(val As Double) As Double
         If val < 0 Then
             Return val * -1
