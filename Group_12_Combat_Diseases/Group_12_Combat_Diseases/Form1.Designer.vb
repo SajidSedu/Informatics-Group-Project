@@ -28,6 +28,7 @@ Partial Class frmCD
         Me.btnInit = New System.Windows.Forms.Button()
         Me.btnDisplay = New System.Windows.Forms.Button()
         Me.txtDisplay = New System.Windows.Forms.TextBox()
+        Me.btnFile = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'LblHIV
@@ -68,7 +69,7 @@ Partial Class frmCD
         '
         'btnDisplay
         '
-        Me.btnDisplay.Location = New System.Drawing.Point(857, 131)
+        Me.btnDisplay.Location = New System.Drawing.Point(857, 195)
         Me.btnDisplay.Name = "btnDisplay"
         Me.btnDisplay.Size = New System.Drawing.Size(190, 39)
         Me.btnDisplay.TabIndex = 4
@@ -77,17 +78,27 @@ Partial Class frmCD
         '
         'txtDisplay
         '
-        Me.txtDisplay.Location = New System.Drawing.Point(799, 185)
+        Me.txtDisplay.Location = New System.Drawing.Point(814, 260)
         Me.txtDisplay.Multiline = True
         Me.txtDisplay.Name = "txtDisplay"
         Me.txtDisplay.Size = New System.Drawing.Size(296, 235)
         Me.txtDisplay.TabIndex = 5
+        '
+        'btnFile
+        '
+        Me.btnFile.Location = New System.Drawing.Point(857, 130)
+        Me.btnFile.Name = "btnFile"
+        Me.btnFile.Size = New System.Drawing.Size(190, 39)
+        Me.btnFile.TabIndex = 6
+        Me.btnFile.Text = "create file"
+        Me.btnFile.UseVisualStyleBackColor = True
         '
         'frmCD
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1142, 563)
+        Me.Controls.Add(Me.btnFile)
         Me.Controls.Add(Me.txtDisplay)
         Me.Controls.Add(Me.btnDisplay)
         Me.Controls.Add(Me.btnInit)
@@ -107,4 +118,5 @@ Partial Class frmCD
     Friend WithEvents btnInit As Button
     Friend WithEvents btnDisplay As Button
     Friend WithEvents txtDisplay As TextBox
+    Friend WithEvents btnFile As Button
 End Class

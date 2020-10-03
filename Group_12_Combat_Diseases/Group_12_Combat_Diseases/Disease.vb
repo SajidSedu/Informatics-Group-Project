@@ -12,7 +12,7 @@ Option Strict On
 Option Infer Off
 Option Explicit On
 
-Public Class Disease
+<Serializable()> Public Class Disease
     'Variables
     Protected _cases() As Integer
     Protected _months As Integer

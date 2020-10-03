@@ -12,8 +12,14 @@ Option Strict On
 Option Infer Off
 Option Explicit On
 
+Imports System.IO
+Imports System.Runtime.Serialization.Formatters.Binary
+
 Public Class frmCD
     Private disease() As Disease
+    Private fls As FileStream
+    Private bnf As BinaryFormatter
+    Private Const FILENAME As String = "tb.ifm"
 
     Private Sub frmCD_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ReDim disease(3)
@@ -31,8 +37,20 @@ Public Class frmCD
         disease(3) = tb
     End Sub
 
-    Private Sub btnDisplay_Click(sender As Object, e As EventArgs) Handles btnDisplay.Click
-        txtDisplay.Text = disease(3).Display()
+    Private Sub btnFile_Click(sender As Object, e As EventArgs) Handles btnFile.Click
+        fls = New FileStream(FILENAME, FileMode.Create, FileAccess.Write)
+        bnf = New BinaryFormatter
+        bnf.Serialize(fls, disease(3))
+        fls.Close()
     End Sub
+
+    Private Sub btnDisplay_Click(sender As Object, e As EventArgs) Handles btnDisplay.Click
+        fls = New FileStream(FILENAME, FileMode.Open, FileAccess.Read)
+        bnf = New BinaryFormatter
+        Dim tbTemp As TB
+        tbTemp = DirectCast(bnf.Deserialize(fls), TB)
+        txtDisplay.Text = tbTemp.Display()
+    End Sub
+
 
 End Class

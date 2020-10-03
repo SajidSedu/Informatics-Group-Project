@@ -12,7 +12,7 @@ Option Strict On
 Option Infer Off
 Option Explicit On
 
-Public Class TB
+<Serializable()> Public Class TB
     Inherits Disease
 
     Private _medMonths As Integer ' number of months the medication needs to be taken
