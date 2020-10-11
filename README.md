@@ -1,1 +1,0 @@
-# Informatics-Group-Project

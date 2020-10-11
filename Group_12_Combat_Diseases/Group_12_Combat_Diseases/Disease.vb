@@ -2,8 +2,8 @@
 ' Team Number: 12
 ' Team Member 1 Details: Sedu, MSAS (220042255)
 ' Team Member 2 Details: Pathan, MP (220012601)
-' Team Member 3 Details: Surname, Initials (Student #)
-' Team Member 4 Details: e.g. Smith, J (202000001)
+' Team Member 3 Details: Shabir, SK (220071049)
+' Team Member 4 Details: Chopdat,MYC(219063106)
 ' Practical: Team Project
 ' Class name: Disease
 ' *****************************************************************
@@ -70,7 +70,7 @@ Option Explicit On
 
     Public Overridable Function Display() As String 'displays the disease information
         Dim output As String
-        output = "Months monitored: " & CStr(_months) & vbCrLf
+        output = "Months/Years monitored: " & CStr(_months) & vbCrLf
         output += "Average cases: " & CStr(AvgCases()) & vbCrLf
         output += "Total cases: " & CStr(_totalCases) & vbCrLf
         output += "Death rate: " & Format(DeathRate(), "0.0%") & vbCrLf
